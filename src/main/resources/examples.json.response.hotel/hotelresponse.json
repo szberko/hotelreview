@@ -1,0 +1,14 @@
+{
+  "name": "hotel1",
+  "description": "description",
+  "image": "some CDN location",
+  "address": {
+    "city": "Novi Sad",
+    "country": "Serbia",
+    "street": "Miroslav Antica 16"
+  },
+  "geoLocation": {
+    "lon": 45.2163967,
+    "lat": 19.8564905
+  }
+}

@@ -11,11 +11,13 @@ public class Hotel {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
-    private String address;
+    private String city;
+    private String country;
+    private String street;
     private String image;
     private String description;
-    private String lat;
-    private String lon;
+    private double lat;
+    private double lon;
 
     @OneToMany(mappedBy = "hotel")
     private Set<Review> reviews;
@@ -23,10 +25,15 @@ public class Hotel {
     @OneToMany(mappedBy = "hotel")
     private Set<Favorite> favoritedBy;
 
+    public Hotel() {
+    }
+
     private Hotel(Builder builder) {
         id = builder.id;
         name = builder.name;
-        address = builder.address;
+        city = builder.city;
+        country = builder.country;
+        street = builder.street;
         image = builder.image;
         description = builder.description;
         lat = builder.lat;
@@ -34,6 +41,7 @@ public class Hotel {
         reviews = builder.reviews;
         favoritedBy = builder.favoritedBy;
     }
+
 
     public Long getId() {
         return id;
@@ -43,8 +51,16 @@ public class Hotel {
         return name;
     }
 
-    public String getAddress() {
-        return address;
+    public String getCity() {
+        return city;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public String getStreet() {
+        return street;
     }
 
     public String getImage() {
@@ -55,11 +71,11 @@ public class Hotel {
         return description;
     }
 
-    public String getLat() {
+    public double getLat() {
         return lat;
     }
 
-    public String getLon() {
+    public double getLon() {
         return lon;
     }
 
@@ -89,7 +105,9 @@ public class Hotel {
         return "Hotel{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", address='" + address + '\'' +
+                ", city='" + city + '\'' +
+                ", country='" + country + '\'' +
+                ", street='" + street + '\'' +
                 ", image='" + image + '\'' +
                 ", description='" + description + '\'' +
                 ", lat='" + lat + '\'' +
@@ -99,15 +117,16 @@ public class Hotel {
                 '}';
     }
 
-
     public static final class Builder {
         private Long id;
         private String name;
-        private String address;
+        private String city;
+        private String country;
+        private String street;
         private String image;
         private String description;
-        private String lat;
-        private String lon;
+        private double lat;
+        private double lon;
         private Set<Review> reviews;
         private Set<Favorite> favoritedBy;
 
@@ -124,8 +143,18 @@ public class Hotel {
             return this;
         }
 
-        public Builder withAddress(String val) {
-            address = val;
+        public Builder withCity(String val) {
+            city = val;
+            return this;
+        }
+
+        public Builder withCountry(String val) {
+            country = val;
+            return this;
+        }
+
+        public Builder withStreet(String val) {
+            street = val;
             return this;
         }
 
@@ -139,12 +168,12 @@ public class Hotel {
             return this;
         }
 
-        public Builder withLat(String val) {
+        public Builder withLat(double val) {
             lat = val;
             return this;
         }
 
-        public Builder withLon(String val) {
+        public Builder withLon(double val) {
             lon = val;
             return this;
         }
