@@ -1,0 +1,8 @@
+{
+  "name": "hotel",
+  "address": "address",
+  "image": "image",
+  "description": "description",
+  "lat": "latitude",
+  "lon": "longitude"
+}
