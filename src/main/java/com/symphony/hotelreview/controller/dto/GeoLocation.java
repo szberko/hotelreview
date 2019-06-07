@@ -1,8 +1,12 @@
 package com.symphony.hotelreview.controller.dto;
 
+import io.swagger.annotations.ApiModelProperty;
+
 public class GeoLocation {
 
+    @ApiModelProperty(notes = "Latitude param of your hotel", required = true)
     private final Double lat;
+    @ApiModelProperty(notes = "Lognitude param of your hotel", required = true)
     private final Double lon;
 
     public GeoLocation(Double lat, Double lon) {

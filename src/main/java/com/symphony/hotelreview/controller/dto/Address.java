@@ -1,11 +1,16 @@
 package com.symphony.hotelreview.controller.dto;
 
+import io.swagger.annotations.ApiModelProperty;
+
 import java.util.Objects;
 
 public class Address {
 
+    @ApiModelProperty(notes = "City of your hotel", example = "Novi Sad", required = true)
     private final String city;
+    @ApiModelProperty(notes = "Country of your hotel", example = "Serbia", required = true)
     private final String country;
+    @ApiModelProperty(notes = "Street of your hotel", example = "Miroslava Antica 18", required = true)
     private final String street;
 
     public Address(String city, String country, String street) {
