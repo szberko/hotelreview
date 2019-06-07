@@ -9,6 +9,7 @@ import com.symphony.hotelreview.service.HotelService;
 import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -34,12 +35,12 @@ public class HotelController {
     }
 
     @GetMapping(value = "hotels/{id}", produces = "application/json")
-    public HotelResponse getOneHotel(@NonNull @PathVariable final Long id){
+    public HotelResponse getOneHotel(@Valid @NonNull @PathVariable final Long id){
         return controllerHotelResponseConverter.convert(hotelService.getAHotel(id));
     }
 
     @PostMapping(value = "/hotels", produces = "application/json")
-    public HotelResponse createHotel(@RequestBody final HotelRequest payload){
+    public HotelResponse createHotel(@Valid @RequestBody final HotelRequest payload){
         final com.symphony.hotelreview.service.dto.HotelRequest hotelRequest = controllerHotelRequestConverter.convert(payload);
         final com.symphony.hotelreview.service.dto.HotelResponse hotelResponse = hotelService.createHotel(hotelRequest);
 
@@ -47,7 +48,7 @@ public class HotelController {
     }
 
     @PutMapping(value = "/hotels/{id}", produces = "application/json")
-    public HotelResponse editHotel(@PathVariable @NotNull final Long id, @RequestBody final HotelRequest payload){
+    public HotelResponse editHotel(@Valid @PathVariable @NotNull final Long id, @Valid @RequestBody final HotelRequest payload){
         final com.symphony.hotelreview.service.dto.HotelRequest hotelRequest = controllerHotelRequestConverter.convert(payload);
         final com.symphony.hotelreview.service.dto.HotelResponse hotelResponse = hotelService.editHotel(id, hotelRequest);
 

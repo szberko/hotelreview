@@ -6,6 +6,9 @@ import com.symphony.hotelreview.service.ReviewService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Nonnull;
+import javax.validation.Valid;
+
 @RestController
 public class ReviewController {
 
@@ -20,7 +23,7 @@ public class ReviewController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping(value = "/hotels/{hotelId}/reviews", produces = "application/json")
-    public void createReview(@PathVariable final Long hotelId, @RequestBody final ReviewRequest payload){
+    public void createReview(@Valid @Nonnull @PathVariable final Long hotelId, @Valid @RequestBody final ReviewRequest payload){
         final com.symphony.hotelreview.service.dto.ReviewRequest reviewRequest = controllerReviewRequestController.convert(payload);
         reviewService.createReview(hotelId, reviewRequest);
     }

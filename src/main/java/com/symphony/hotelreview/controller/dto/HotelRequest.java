@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import io.swagger.annotations.ApiModelProperty;
 
 import javax.annotation.Nonnull;
+import javax.validation.constraints.NotEmpty;
 import java.util.Objects;
 
 @JsonDeserialize(builder = HotelRequest.Builder.class)
@@ -11,6 +12,7 @@ public class HotelRequest {
 
     @ApiModelProperty(notes = "Name of your hotel", example = "Hotel 1", required = true, position = 0)
     @Nonnull
+    @NotEmpty
     private final String name;
     @ApiModelProperty(notes = "Description of your hotel", example = "Description", required = true, position = 1)
     private final String description;
@@ -18,6 +20,7 @@ public class HotelRequest {
     @Nonnull
     private final Address address;
     @ApiModelProperty(notes = "Image from CDN source of your hotel", required = true, position = 3)
+    //TODO Improvements: Image should come from CDN service
     private final String image;
     @ApiModelProperty(notes = "GeoLocation of your hotel", required = true, position = 4)
     @Nonnull

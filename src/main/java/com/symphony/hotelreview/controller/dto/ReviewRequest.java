@@ -1,11 +1,19 @@
 package com.symphony.hotelreview.controller.dto;
 
+import javax.annotation.Nonnull;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import java.util.Objects;
 
 public class ReviewRequest {
 
+    @Nonnull
     private final String review;
+    @Nonnull
+    @Min(0)
+    @Max(5)
     private final Integer rating;
+    @Nonnull
     private final Long userId;
 
     public ReviewRequest(String review, Integer rating, Long userId) {
