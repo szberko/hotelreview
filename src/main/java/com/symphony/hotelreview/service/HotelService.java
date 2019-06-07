@@ -9,5 +9,7 @@ import java.util.List;
 public interface HotelService {
 
     List<HotelResponse> getAllHotels();
+    HotelResponse getAHotel(final long id);
     HotelResponse createHotel(final HotelRequest hotelRequest);
+    HotelResponse editHotel(final long id, final HotelRequest hotelRequest);
 }

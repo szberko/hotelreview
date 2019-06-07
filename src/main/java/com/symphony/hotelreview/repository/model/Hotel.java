@@ -87,6 +87,50 @@ public class Hotel {
         return favoritedBy;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setLat(double lat) {
+        this.lat = lat;
+    }
+
+    public void setLon(double lon) {
+        this.lon = lon;
+    }
+
+    public void setReviews(Set<Review> reviews) {
+        this.reviews = reviews;
+    }
+
+    public void setFavoritedBy(Set<Favorite> favoritedBy) {
+        this.favoritedBy = favoritedBy;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
