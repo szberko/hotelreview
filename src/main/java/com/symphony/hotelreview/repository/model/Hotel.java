@@ -1,5 +1,7 @@
 package com.symphony.hotelreview.repository.model;
 
+import com.google.common.annotations.VisibleForTesting;
+
 import javax.persistence.*;
 import java.util.Objects;
 import java.util.Set;
@@ -177,6 +179,7 @@ public class Hotel {
         public Builder() {
         }
 
+        @VisibleForTesting
         public Builder withId(Long val) {
             id = val;
             return this;
