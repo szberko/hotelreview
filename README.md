@@ -18,3 +18,6 @@ mvn clean package docker:build
 Run docker image:
 docker run -p 8080:8080 hotel-review
 
+To test the application, you can use Swagger at:
+/swagger-ui.html
+
