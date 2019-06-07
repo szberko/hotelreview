@@ -3,20 +3,24 @@ package com.symphony.hotelreview.controller.dto;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import io.swagger.annotations.ApiModelProperty;
 
+import javax.annotation.Nonnull;
 import java.util.Objects;
 
 @JsonDeserialize(builder = HotelRequest.Builder.class)
 public class HotelRequest {
 
     @ApiModelProperty(notes = "Name of your hotel", example = "Hotel 1", required = true, position = 0)
+    @Nonnull
     private final String name;
     @ApiModelProperty(notes = "Description of your hotel", example = "Description", required = true, position = 1)
     private final String description;
-    @ApiModelProperty(notes = "Address of your hotel", required = true, position = 2)
+    @ApiModelProperty(notes = "Address of your hotel", position = 2)
+    @Nonnull
     private final Address address;
     @ApiModelProperty(notes = "Image from CDN source of your hotel", required = true, position = 3)
     private final String image;
     @ApiModelProperty(notes = "GeoLocation of your hotel", required = true, position = 4)
+    @Nonnull
     private final GeoLocation geoLocation;
 
     public String getName() {

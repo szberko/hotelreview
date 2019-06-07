@@ -61,6 +61,30 @@ public class Review {
         return ratingOpinions;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setReview(String review) {
+        this.review = review;
+    }
+
+    public void setRating(Integer rating) {
+        this.rating = rating;
+    }
+
+    public void setReviewer(User reviewer) {
+        this.reviewer = reviewer;
+    }
+
+    public void setHotel(Hotel hotel) {
+        this.hotel = hotel;
+    }
+
+    public void setRatingOpinions(Set<RatingOpinion> ratingOpinions) {
+        this.ratingOpinions = ratingOpinions;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
